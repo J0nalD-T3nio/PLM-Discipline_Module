@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSDS Head Main Menu</title>
+    <meta http-equiv="refresh" content="5">
+    <script src="https:cdn.tailwindcss.com"></script>
+</head>
+<body class="selection:bg-amber-300 selection:text-white">
+    <!-- Header -->
+    <div class="bg-white">
+        <header class="relative bg-white">
+            <nav aria-label="Top" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="border-b border-gray-200">
+                    <div class="flex py-4 items-center">
+                        <!-- PLM Logo -->
+                        <div class="ml-4 flex lg:ml-0">
+                            <img class="h-16 w-auto selection:bg-transparent" src="https://plm.edu.ph/images/ui/plm-logo--with-header.png" alt="PLM Logo with Header">
+                        </div>
+
+                        <div class="mx-auto flex items-center">
+                            <div class="flex items-center justify-center">
+                                <label class="text-lg font-semibold text-indigo-800">
+                                    <span class="text-center">Office of Student Development and Services</span>
+                                    <div class="flex justify-end">
+                                        <input placeholder="Search anything.." type="search" class="bg-slate-100 text-sm text-gray-700 p-2 rounded-md placeholder:text-gray-400 focus:outline-none focus:ring focus:ring-amber-600">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- User -->
+                        <div class="ml-auto flex items-center">
+                            <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                                <!-- Search Bar for Tabs -->
+                                <!-- <input class="w-full appearance-none bg-transparent pl-4 text-base text-slate-900 placeholder:text-slate-600 focus:outline-none sm:text-sm sm:leading-6" placeholder="Find certain tabs..." role="combobox" type="text" aria-expanded="false" aria-autocomplete="list"> -->
+                                <!-- Profile -->
+                                <div class="rounded-full text-gray-400 hover:outline hover:outline-amber-600">
+                                    <svg class="h-16 w-16 " viewBox="7 7 50 50" fill="currentColor">
+                                        <path fill-rule="evenodd" d="m32,8c-13.25,0-24,10.75-24,24s10.75,24,24,24,24-10.75,24-24-10.75-24-24-24Zm13.25,36.16c-2.71-3.93-7.29-6.16-13.25-6.16s-10.54,2.23-13.25,6.16c-2.94-3.2-4.75-7.46-4.75-12.16,0-9.94,8.06-18,18-18s18,8.06,18,18c0,4.69-1.81,8.95-4.75,12.16Zm-5.25-18.16c0,4.94-3.06,8-8,8s-8-3.06-8-8,3.06-8,8-8,8,3.06,8,8Z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                
+                                <a href="#" class="text-sm font-medium text-gray-500 hover:text-amber-600">OSDS Head [Full Name]<br>User Email<br>[Role: OSDS Head]</a>
+                                <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
+                                <!-- Time-Date-->
+                                <div class="grid grid-rows-3 text-sm font-medium text-gray-500 cursor-default">
+                                    <div id="weekday"></div>
+                                    <div id="date"></div>
+                                    <div id="time"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function updateDateTime() {
+            var currentDateTime = new Date();
+            var weekday = {weekday:'long'};
+            var options = {year:'numeric', month:'long', day:'numeric'};
+            var dateString = currentDateTime.toLocaleString('en-PH',options);
+            var weekDayString = currentDateTime.toLocaleString('en-PH',weekday);
+            var timeString = currentDateTime.toLocaleTimeString();
+            document.getElementById("weekday").innerHTML = weekDayString;
+            document.getElementById("date").innerHTML = dateString;
+            document.getElementById("time").innerHTML = timeString;
+        }
+
+        // Update date and time every second
+        setInterval(updateDateTime, 1000);
+
+        // Initial call to display date and time immediately
+        updateDateTime();
+    </script>
+
+
+
+    <!-- Side Navigation Bar -->
+    <div class="bg-white grid grid-cols-5 overflow-hidden min-h-full max-h-[170vh]">
+        <div class="bg-indigo-800 max-w-none">
+            <form class="hidden lg:block">
+                <div class="py-6 px-8">
+                    <button type="button" class="border-b border-slate-400 flex w-full items-center justify-between py-3 text-xl font-semibold text-white hover:bg-indigo-600 hover:text-amber-300">
+                        <span class="mx-4">Home</span>
+                    </button>
+                </div>
+                <div class="py-6 px-8">
+                    <h3 class="-my-3 flow-root border-b border-slate-400">
+                        <button type="button" class="flex w-full items-center justify-between py-3 text-md font-medium text-white hover:bg-indigo-600 hover:text-amber-300">
+                            <span class="mx-4">Student Cases</span>
+                            <span class="ml-6 flex items-center">
+                                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenoff"></path>
+                                </svg>
+                            </span>
+                        </button>
+                    </h3>
+                    <div class="pt-6">
+                        <div class="space-y-4">
+                            <button type="button" class="flex w-full items-center text-sm text-slate-300 hover:bg-indigo-600 hover:text-amber-300">
+                                <span class="ml-3">Case Records</span>
+                            </button>
+                            <button type="button" class="flex w-full items-center text-sm text-slate-300 hover:bg-indigo-600 hover:text-amber-300">
+                                <span class="ml-3">Add a New Case Record</span>
+                            </button>
+                            <button type="button" class="flex w-full items-center text-sm text-slate-300 hover:bg-indigo-600 hover:text-amber-300">
+                                <span class="ml-3">Import a CSV File: Case Record</span>
+                            </button>
+                            <button type="button" class="flex w-full items-center text-sm text-slate-300 hover:bg-indigo-600 hover:text-amber-300">
+                                <span class="ml-3">List of Complaints</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-6 px-8">
+                    <h3 class="-my-3 flow-root border-b border-slate-400">
+                        <button type="button" class="flex w-full items-center justify-between py-3 text-md font-medium text-white hover:bg-indigo-600 hover:text-amber-300">
+                            <span class="mx-4">Generate Reports</span>
+                            <span class="ml-6 flex items-center">
+                                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenoff"></path>
+                                </svg>
+                            </span>
+                        </button>
+                    </h3>
+                    <div class="pt-6">
+                        <div class="space-y-4">
+                            <button type="button" class="flex w-full items-center text-sm text-slate-300 hover:bg-indigo-600 hover:text-amber-300">
+                                <span class="ml-3">Violators Report</span>
+                            </button>
+                            <button type="button" class="flex w-full items-center text-sm text-slate-300 hover:bg-indigo-600 hover:text-amber-300">
+                                <span class="ml-3">Enrollees Report</span>
+                            </button>
+                            <button type="button" class="flex w-full items-center text-sm text-slate-300 hover:bg-indigo-600 hover:text-amber-300">
+                                <span class="ml-3">GMC Requests</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-6 px-8">
+                    <h3 class="-my-3 flow-root border-b border-slate-400">
+                        <button type="button" class="flex w-full items-center justify-between py-3 text-md font-medium text-white hover:bg-indigo-600 hover:text-amber-300">
+                            <span class="mx-4">Administrator</span>
+                            <span class="ml-6 flex items-center">
+                                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenoff"></path>
+                                </svg>
+                            </span>
+                        </button>
+                    </h3>
+                    <div class="pt-6">
+                        <div class="space-y-4">
+                            <button type="button" class="flex w-full items-center text-sm text-slate-300 hover:bg-indigo-600 hover:text-amber-300">
+                                <span class="ml-3">Colleges and Courses</span>
+                            </button>
+                            <button type="button" class="flex w-full items-center text-sm text-slate-300 hover:bg-indigo-600 hover:text-amber-300">
+                                <span class="ml-3">Students Manager</span>
+                            </button>
+                            <button type="button" class="flex w-full items-center text-sm text-slate-300 hover:bg-indigo-600 hover:text-amber-300">
+                                <span class="ml-3">Violations Manager</span>
+                            </button>
+                            <button type="button" class="flex w-full items-center text-sm text-slate-300 hover:bg-indigo-600 hover:text-amber-300">
+                                <span class="ml-3">OSDS Employees</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-6 px-8">
+                    <h3 class="-my-3 flow-root border-b border-slate-400">
+                        <button type="button" class="flex w-full items-center justify-between py-3 text-md font-medium text-white hover:bg-indigo-600 hover:text-amber-300">
+                            <span class="mx-4">Settings</span>
+                            <span class="ml-6 flex items-center">
+                                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenoff"></path>
+                                </svg>
+                            </span>
+                        </button>
+                    </h3>
+                    <div class="pt-6">
+                        <div class="space-y-4">
+                            <button type="button" class="flex w-full items-center text-sm text-slate-300 hover:bg-indigo-600 hover:text-amber-300">
+                                <span class="ml-3">Display & Accessibility</span>
+                            </button>
+                            <button type="button" class="flex w-full items-center text-sm text-slate-300 hover:bg-indigo-600 hover:text-amber-300">
+                                <span class="ml-3">Settings & Privacy</span>
+                            </button>
+                            <button type="button" class="flex w-full items-center text-sm text-slate-300 hover:bg-indigo-600 hover:text-amber-300">
+                                <span class="ml-3">Give Feedback</span>
+                            </button>
+                            <button type="button" class="flex w-full items-center font-medium text-lg text-red-300 hover:bg-red-600 hover:text-amber-300">
+                                <span class="ml-3">Log Out</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Contents Main -->
+        <section class="col-span-4 min-h-full max-h-[170vh]">
+            <!-- Contents Borderline to Avoid Content Spillage -->
+            <div class="relative overflow-hidden rounded-r-xl bg-slate-100 border border-double border-gray-400 bg-opacity-75 lg:h-full">
+                <span class="flex justify-center pt-4 text-3xl font-bold tracking-tight text-indigo-800 cursor-default">Add a New Case Record</span>
+                <div class="grid grid-cols-5 grid-rows-2 mt-16 -mx-8">
+                    <div class="col-start-2 col-span-2 row-start-1">
+                        <div class="bg-white mt-16 p-0 rounded-xl shadow mx-4">
+                            <div class="flex items-center justify-between p-4">
+                                <h1 class="flex items-center justify-between text-md text-indigo-800">
+                                    <span class="text-center border-y border-slate-200 px-2 mx-6">Student Number</span>
+                                    <input placeholder="Enter Student Number" class="w-full h-full text-gray-700 ring-1 ring-slate-400 placeholder:text-slate-300 placeholder:text-sm focus:outline-none focus:ring focus:ring-amber-600 rounded-md p-2">
+                                    <button type="button" title="Search" class="-mx-10 hover:bg-gray-100 rounded-full p-1">
+                                        <svg class="pointer-events-none h-6 w-6 fill-slate-400 ">
+                                            <path d="M20.47 21.53a.75.75 0 1 0 1.06-1.06l-1.06 1.06Zm-9.97-4.28a6.75 6.75 0 0 1-6.75-6.75h-1.5a8.25 8.25 0 0 0 8.25 8.25v-1.5ZM3.75 10.5a6.75 6.75 0 0 1 6.75-6.75v-1.5a8.25 8.25 0 0 0-8.25 8.25h1.5Zm6.75-6.75a6.75 6.75 0 0 1 6.75 6.75h1.5a8.25 8.25 0 0 0-8.25-8.25v1.5Zm11.03 16.72-5.196-5.197-1.061 1.06 5.197 5.197 1.06-1.06Zm-4.28-9.97c0 1.864-.755 3.55-1.977 4.773l1.06 1.06A8.226 8.226 0 0 0 18.75 10.5h-1.5Zm-1.977 4.773A6.727 6.727 0 0 1 10.5 17.25v1.5a8.226 8.226 0 0 0 5.834-2.416l-1.061-1.061Z"></path>
+                                        </svg>
+                                    </button>
+                                </h1>
+                                <!-- Once the user chooses a Student Number, the Student will display -->
+                                <!-- Transition the button to the left, only displaying the inputted Student Number -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add a new case record input -->
+                    <div class="col-start-1 col-span-3 row-start-2">
+                        <div class="bg-white rounded-xl shadow mx-16 -mt-32">
+                            <div class="flex justify-center items-center pb-12">
+                                <div class="mx-auto max-w-full">
+                                    <div class="container mx-auto mt-10 border-t border-slate-400">
+                                        <h2 class="flex items-center justify-between text-md font-medium leading-6 text-indigo-800 mt-8">
+                                            <span class="text-center px-2 mx-6">Offense Type</span>
+                                            <select title="Select Offense Type" class="h-full rounded-md bg-slate-100 py-2 pl-2 pr-7 text-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-600 sm:text-sm">
+                                                <option class="text-gray-200 bg-gray-700" value="none" disabled selected>Select Offense Type</option>
+                                                <option value="option1">Offense Type A</option>
+                                                <option value="option2">Offense Type B</option>
+                                                <option value="option3">Offense Type C</option>
+                                            </select>
+                                        </h2>
+                                        <h2 class="flex items-center justify-between text-md font-medium leading-6 text-indigo-800 mt-8">
+                                            <span class="text-center px-2 mx-6">Violation</span>
+                                            <select title="Select Violation" class="h-full rounded-md bg-slate-100 py-2 pl-2 pr-7 text-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-600 sm:text-sm">
+                                                <option class="text-gray-200 bg-gray-700" value="none" disabled selected>Select Student Violation</option>
+                                                <option value="option1">Violation A</option>
+                                                <option value="option2">Violation B</option>
+                                                <option value="option3">Violation C</option>
+                                            </select>
+                                        </h2>
+                                        <h2 class="flex items-center justify-between text-md font-medium leading-6 text-indigo-800 mt-8">
+                                            <span class="text-center px-2 mx-6">Violation Date</span>
+                                            <input title="Violation Date" type="date" class="h-full rounded-md bg-slate-100 py-2 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-600 sm:text-sm">
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Display the student that will be given a new case record -->
+                    <div class="col-start-4 col-span-2 row-start-2">
+                        <div class="overflow-hidden bg-white rounded-xl shadow overflow-auto mr-4 -mt-56">
+                            <div class="flex justify-center items-center pb-12">
+                                <div class="mx-auto">
+                                    <div class="flex justify-center items-center mt-4">
+                                        <label class="block text-sm leading-6 text-indigo-800">
+                                            <span class="py-3 px-20 border-b border-slate-400">Student Information</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-center items-center mb-12">
+                                <div class="relative overflow-hidden rounded-xl bg-slate-100 border border-dashed border-gray-400 bg-opacity-75 lg:h-full px-16 py-24">
+                                    <span class="text-gray-400">Student Photo</span>
+                                </div>
+                            </div>
+                            <div class="mt-12 mb-12 mx-auto">
+                                <div class="grid grid-rows-5 mx-4">
+                                    <label class="truncate flex justify-between text-sm font-medium leading-6 text-indigo-800">
+                                        <span class="ml-8">Student First Name</span>
+                                        <span class="inline-flex border border-double border-gray-400 bg-opacity-75 bg-slate-100 rounded-md lg:h-full pt-1.5 mx-8 px-4">Jerome</span>
+                                    </label>
+                                    <label class="truncate flex justify-between text-sm font-medium leading-6 text-indigo-800">
+                                        <span class="ml-8">Student Last Name</span>
+                                        <span class="inline-flex border border-double border-gray-400 bg-opacity-75 bg-slate-100 rounded-md lg:h-full py-1 mx-8 px-4">Caladiao</span>
+                                    </label>
+                                    <label class="truncate flex justify-between text-sm font-medium leading-6 text-indigo-800">
+                                        <span class="ml-8">Student Middle Name</span>
+                                        <span class="inline-flex border border-double border-gray-400 bg-opacity-75 bg-slate-100 rounded-md lg:h-full py-1 mx-8 px-4">Zablan</span>
+                                    </label>
+                                    <label class="truncate flex justify-between text-sm font-medium leading-6 text-indigo-800">
+                                        <span class="ml-8">College</span>
+                                        <span class="inline-flex border border-double border-gray-400 bg-opacity-75 bg-slate-100 rounded-md lg:h-full py-1 mx-8 px-4">Engineering</span>
+                                    </label>
+                                    <label class="truncate flex justify-between text-sm font-medium leading-6 text-indigo-800">
+                                        <span class="ml-8">Course</span>
+                                        <span class="inline-flex border border-double border-gray-400 bg-opacity-75 bg-slate-100 rounded-md lg:h-full py-1 mx-8 px-4">Computer Science</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
